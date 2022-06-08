@@ -6,6 +6,7 @@
   "author": "Giovanni",
   "description": "linux pdf reader",
   "homepage": "./",
+  "repository": "https://github.com/the-coder-kalisa/pdf-reader.git",
   "dependencies": {
     "@pdftron/webviewer": "^8.5.0",
     "@testing-library/jest-dom": "^5.16.4",
@@ -22,7 +23,7 @@
   },
   "scripts": {
     "start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on tcp:3000 && electron .\"",
-    "build": "react-scripts build && electron-builder",
+    "build": "react-scripts build && electron-builder --linux snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
