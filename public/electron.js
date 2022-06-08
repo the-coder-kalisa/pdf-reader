@@ -19,6 +19,11 @@ const createWindow = () => {
   })
 mainWindow.on('closed', () => mainWindow = null);
 
+var menu = Menu.buildFromTemplate([
+  {
+    label: "Menu"
+  }
+])
 
   // and load the index.html of the app.
  mainWindow.loadURL(isDev ? "http://localhost:3000" : `file://${path.join(__dirname, "../build/index.html")}`);
