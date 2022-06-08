@@ -1,0 +1,18 @@
+.App {
+    font-family: sans-serif;
+    text-align: left;
+  }
+  #my-pdf {
+    max-width: 100%;
+  }
+  h1 {
+    text-align: center;
+    background: #eeeeee;
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+  canvas {
+    /* max-width: 100% !important; */
+  }
+  

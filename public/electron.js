@@ -1,7 +1,7 @@
 // main.js
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, Menu } = require("electron");
+const { app, BrowserWindow, Menu, ipcMain, dialog } = require("electron");
 const path = require("path");
 const isDev = require("electron-is-dev");
 let mainWindow;
@@ -13,6 +13,7 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       webSecurity: false,
+      devTools: isDev ? true : false,
       enableRemoteModule: true,
       contextIsolation: false,
     },
@@ -23,7 +24,18 @@ const createWindow = () => {
     {
       label: "File",
       submenu: [
-        { label: "New pdf file" },
+        {
+          label: "New pdf file",
+          async click() {
+            const file = await dialog.showOpenDialog(
+              { properties: ["openFile"] },
+              { filters: [{ extensions: ["pdf"] }] }
+            );
+            if (!file.canceled) {
+              mainWindow.webContents.send("click", file.filePaths[0]);
+            }
+          },
+        },
         { label: "New Window" },
         { type: "separator" },
         { label: "Open File" },

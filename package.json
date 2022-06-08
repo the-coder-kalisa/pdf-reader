@@ -1,10 +1,10 @@
 {
-  "name": "pdf-reader",
+  "name": "linux-pdf-reader",
   "version": "0.1.0",
   "private": true,
-  "main": "public/electron.js",
   "author": "Giovanni",
   "description": "linux pdf reader",
+  "main": "public/electron.js",
   "homepage": "./",
   "repository": "https://github.com/the-coder-kalisa/pdf-reader.git",
   "dependencies": {
